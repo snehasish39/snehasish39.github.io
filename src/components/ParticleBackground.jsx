@@ -32,11 +32,9 @@ function ParticleBackground() {
         this.x += this.vx;
         this.y += this.vy;
 
-        // Bounce off edges
         if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-        // Keep within bounds
         this.x = Math.max(0, Math.min(canvas.width, this.x));
         this.y = Math.max(0, Math.min(canvas.height, this.y));
       }
@@ -47,7 +45,6 @@ function ParticleBackground() {
         ctx.fillStyle = 'rgba(0, 245, 255, 0.6)';
         ctx.fill();
         
-        // Add glow effect
         ctx.shadowBlur = 10;
         ctx.shadowColor = 'rgba(0, 245, 255, 0.8)';
         ctx.fill();
@@ -55,7 +52,6 @@ function ParticleBackground() {
       }
     }
 
-    // Create particles
     const particleCount = 100;
     const particles = [];
     
@@ -63,17 +59,14 @@ function ParticleBackground() {
       particles.push(new Particle());
     }
 
-    // Animation loop
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw particles
       particles.forEach(particle => {
         particle.update();
         particle.draw();
       });
 
-      // Draw connections
       particles.forEach((p1, i) => {
         particles.slice(i + 1).forEach(p2 => {
           const dx = p1.x - p2.x;
@@ -97,7 +90,6 @@ function ParticleBackground() {
 
     animate();
 
-    // Handle resize
     const handleResize = () => {
       setCanvasSize();
     };
