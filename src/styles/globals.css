@@ -1,0 +1,329 @@
+:root {
+  /* Ultra-modern Color System */
+  --bg-primary: #050510;
+  --bg-secondary: #0a0a1f;
+  --bg-tertiary: #12122e;
+  --bg-card: rgba(18, 18, 46, 0.7);
+  
+  /* Neon Accent Colors */
+  --neon-cyan: #00f5ff;
+  --neon-pink: #ff0080;
+  --neon-purple: #b537ff;
+  --neon-blue: #0066ff;
+  --neon-green: #00ff88;
+  --gold: #ffd700;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8d1;
+  --text-muted: #6b6b8a;
+  
+  /* Glow Effects */
+  --glow-cyan: rgba(0, 245, 255, 0.6);
+  --glow-pink: rgba(255, 0, 128, 0.6);
+  --glow-purple: rgba(181, 55, 255, 0.6);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #00f5ff 0%, #b537ff 50%, #ff0080 100%);
+  --gradient-secondary: linear-gradient(135deg, #0066ff 0%, #00f5ff 100%);
+  --gradient-tertiary: linear-gradient(135deg, #ff0080 0%, #ffd700 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-neon-cyan: 0 0 40px var(--glow-cyan);
+  --shadow-neon-pink: 0 0 40px var(--glow-pink);
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9ff;
+  --bg-tertiary: #f0f2ff;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --text-primary: #0a0a1f;
+  --text-secondary: #4a4a6a;
+  --text-muted: #8a8aa0;
+  --neon-cyan: #0099ff;
+  --neon-pink: #ff0066;
+  --neon-purple: #9933ff;
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Neon Glow Utility */
+.glow-cyan {
+  box-shadow: var(--shadow-neon-cyan);
+}
+
+.glow-pink {
+  box-shadow: var(--shadow-neon-pink);
+}
+
+/* Gradient Text Utility */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 6px;
+  border: 2px solid var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-secondary);
+}
+
+/* Selection */
+::selection {
+  background: var(--neon-cyan);
+  color: var(--bg-primary);
+}
+
+::-moz-selection {
+  background: var(--neon-cyan);
+  color: var(--bg-primary);
+}
+
+/* Container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Section Spacing */
+section {
+  padding: var(--spacing-xl) 0;
+  position: relative;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px var(--glow-cyan));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px var(--glow-pink));
+  }
+}
+
+/* Utility Classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s var(--transition-normal);
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s var(--transition-normal);
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  section {
+    padding: var(--spacing-lg) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  section {
+    padding: var(--spacing-md) 0;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --spacing-xl: 3rem;
+    --spacing-lg: 2rem;
+  }
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--neon-cyan);
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+}
+
+/* Focus States */
+*:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 4px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

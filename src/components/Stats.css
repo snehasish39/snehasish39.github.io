@@ -1,0 +1,46 @@
+.stats-section {
+  padding: 4rem 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.stat-card {
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.stat-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

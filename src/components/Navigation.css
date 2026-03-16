@@ -1,0 +1,104 @@
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  background: rgba(5, 5, 16, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s;
+}
+
+.nav.scrolled {
+  padding: 1rem 0;
+  background: rgba(5, 5, 16, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--neon-cyan);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.theme-toggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.theme-toggle:hover {
+  transform: rotate(180deg) scale(1.1);
+  box-shadow: 0 0 30px var(--glow-cyan);
+}
+
+@media (max-width: 768px) {
+  .nav-links a:not(:last-child) {
+    display: none;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+}
